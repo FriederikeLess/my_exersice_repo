@@ -1,2 +1,5 @@
 This is just some text file to test, if I can add new_directory to the repo, if it is not empty.
 Adding this directory didn't work so far. But it was empty until now.
+
+It worked. Makes sense that it's not possible to add an empty directory.
+What would you an empty directory for, anyways..
