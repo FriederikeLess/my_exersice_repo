@@ -1,1 +1,5 @@
 This file is to test branching in Git
+
+To push the file to the remote repository, but on a new branch (not main)
+the command IS NOT 'git push --origin 'branch_name'
+the CORRECT command is 'git push origin <branch_name>'
