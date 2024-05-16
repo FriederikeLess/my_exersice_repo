@@ -29,4 +29,33 @@ Now I am testing how the log looks like, when I detach the HEAD from any branch 
     # 4d6261b:   (HEAD, master)
 
     3. commit 'test_text.txt':
-    
+    git add test_text.txt
+    git status
+    # HEAD detached at 4d6261b
+    # Changes to be committed:
+    # (use "git restore --staged <file>..." to unstage)
+    #     modified:   test_text.txt
+    git commit -m "committing with HEAD point to commit"
+
+    4. check out log again and see how it looks now
+    it log --pretty=oneline --graph
+* b37b0d3d9594b64ee160445ffecdf7b5abf8f6ea (HEAD) committing with HEAD point to commit
+* 4d6261b10f3e761a65fadbcbe5344ebec20d9e37 (AnotherBranch) testing to detach HEAD
+* 4b50c411bf17c4020f404b6336ed43a6a7f0d022 (origin/AnotherBranch, main) added some info about pushing to branch
+* 6a8511512ddc257294c97adc46d886dc5ec770f9 added file to new branch
+* 0695eac6e8780d9150acdb22221ee3614cb7c917 (origin/main, origin/HEAD, NewBranch) corrected the text
+* 9e05543895ec5113e5b762edf2cf21e6ccb2b0fd insterted line breaks
+* 967f951131035057321c6f970b02fa2690647eef explained the repo
+* d6d57b6f7da49118d6ebe6cf9adf17b0b35dfa7a added some context
+* bdcc7d4563eaab66dc4438eeb1dda983d18c7dc3 added a file to new_directory
+* ab686ff4e46d2895adb143d2f95b1380a2cc0792 Created a HTML file
+* 600ade138b2e90e19c1603c1be6780e66e277842 Initial commit
+
+--> HEAD moved up, but without the branch
+it is not possible to 'push' when not attached to a branch:
+git push
+# fatal: You are not currently on a branch.
+# To push the history leading to the current (detached HEAD)
+# state now, use
+#
+#     git push origin HEAD:<name-of-remote-branch>
