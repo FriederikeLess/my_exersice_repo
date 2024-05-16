@@ -4,11 +4,29 @@ To push the file to the remote repository, but on a new branch (not main)
 the command IS NOT 'git push --origin 'branch_name'
 the CORRECT command is 'git push origin <branch_name>'
 
-Now I am testting how it looks like, when I detach the HEAD from any branch and attach it to a commit:
-    (this file (test_text.txt) has been comitted in the branch 'AnotherBranch')
-    git log --pretty=format:"%h:  %d" -1
-    # a3c485d:   (HEAD -> master)
+Now I am testing how the log looks like, when I detach the HEAD from any branch and attach it to a commit:
 
-    git checkout a3c485d -q # (-q is for dramatic effect)
+    1. when HEAD points to the branch AnotherBranch:
+    dci-student@dciadmin-ThinkPad-L15-Gen-4:~/exercises/005-20240516/my_exersice_repo$ git log --pretty=oneline --graph
+* 4b50c411bf17c4020f404b6336ed43a6a7f0d022 (HEAD -> AnotherBranch, origin/AnotherBranch, main) added some info about pushing to branch
+* 6a8511512ddc257294c97adc46d886dc5ec770f9 added file to new branch
+* 0695eac6e8780d9150acdb22221ee3614cb7c917 (origin/main, origin/HEAD, NewBranch) corrected the text
+* 9e05543895ec5113e5b762edf2cf21e6ccb2b0fd insterted line breaks
+* 967f951131035057321c6f970b02fa2690647eef explained the repo
+* d6d57b6f7da49118d6ebe6cf9adf17b0b35dfa7a added some context
+* bdcc7d4563eaab66dc4438eeb1dda983d18c7dc3 added a file to new_directory
+* ab686ff4e46d2895adb143d2f95b1380a2cc0792 Created a HTML file
+* 600ade138b2e90e19c1603c1be6780e66e277842 Initial commit
+
+    (2. committed 'test_text.txt' to AnotherBranch)
+
+    3. making HEAD point to the commit:
+    git log --pretty=format:"%h:  %d" -1
+    # 4d6261b:  (HEAD -> AnotherBranch) (this is what the terminal shows when using the command above)
+
+    git checkout 4d6261b -q # (-q is for dramatic effect)
     git log --pretty=format:"%h:  %d" -1   
-    # a3c485d:   (HEAD, master)
+    # 4d6261b:   (HEAD, master)
+
+    3. commit 'test_text.txt':
+    
