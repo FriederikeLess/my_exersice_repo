@@ -59,3 +59,18 @@ git push
 # state now, use
 #
 #     git push origin HEAD:<name-of-remote-branch>
+
+The commits made when HEAD was detached must be connected to a a new branch to push them and not lose them:
+    git checkout AnotherBranch 
+    # Warning: you are leaving 2 commits behind, not connected to
+    # any of your branches:
+    #
+    # d32336f commit before changing back to branch
+    # b37b0d3 committing with HEAD point to commit
+    #
+    # If you want to keep them by creating a new branch, this may be a good time
+    # to do so with:
+    #
+    # git branch <new-branch-name> d32336f
+    #
+    # Switched to branch 'AnotherBranch'
